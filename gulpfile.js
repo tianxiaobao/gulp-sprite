@@ -1,10 +1,18 @@
 var gulp = require('gulp');
 var buffer = require('vinyl-buffer');
+var clean = require('gulp-clean');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
 var merge = require('merge-stream');
 var spritesmith = require('gulp.spritesmith');
- 
+
+// 删除之前的目录
+gulp.task('clean', function() {
+    // 允许目录不存在
+    return gulp.src('dest', {allowEmpty: true})
+    .pipe(clean());
+});
+
 gulp.task('sprite', function () {
     // 配置源文件与生成的css、雪碧图
     var spriteData = gulp.src('images/*.png').pipe(spritesmith({
@@ -20,7 +28,7 @@ gulp.task('sprite', function () {
         .pipe(gulp.dest('dest/image/')); //图片路径
 
     var cssStream = spriteData.css
-        .pipe(csso()) //压缩css
+        // .pipe(csso()) //压缩css
         .pipe(gulp.dest('dest/css/')); //css路径
 
     return merge(imgStream, cssStream);
