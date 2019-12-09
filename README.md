@@ -1,10 +1,10 @@
-`npm install`
+### `npm install`
 安装依赖
 
-`gulp sprite`
+### `gulp sprite`
 生成雪碧图
 
-`gulp clean`
+### `gulp clean`
 删除雪碧图
 
 `配置`
