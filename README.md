@@ -22,7 +22,7 @@
 padding：Number类型，默认0
 
 **雪碧图排列方式**
-algorithm：String类型，默认'binary-tree'
+algorithm：String类型，默认'binary-tree'。
 可选值：
 top-down(上到下)
 left-right(左到右)
