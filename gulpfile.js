@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var buffer = require('vinyl-buffer');
 var clean = require('gulp-clean');
-var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
 var merge = require('merge-stream');
 var spritesmith = require('gulp.spritesmith');
@@ -13,6 +12,7 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+// 生成雪碧图
 gulp.task('sprite', function () {
     // 配置源文件与生成的css、雪碧图
     var spriteData = gulp.src('images/*.png').pipe(spritesmith({
@@ -28,7 +28,6 @@ gulp.task('sprite', function () {
         .pipe(gulp.dest('dest/image/')); //图片路径
 
     var cssStream = spriteData.css
-        // .pipe(csso()) //压缩css
         .pipe(gulp.dest('dest/css/')); //css路径
 
     return merge(imgStream, cssStream);
