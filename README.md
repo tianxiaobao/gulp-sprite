@@ -7,6 +7,7 @@
 ### `gulp clean`
 删除雪碧图
 
+
 **使用**
 将图片放在images文件夹下，图片名将为最终的css类名
 生成的雪碧图及样式在dest目录下
@@ -22,8 +23,7 @@ padding：Number类型，默认0
 
 **雪碧图排列方式**
 algorithm：String类型，默认'binary-tree'
-
-**可选值**
+可选值：
 top-down(上到下)
 left-right(左到右)
 diagonal(左上到右下)
